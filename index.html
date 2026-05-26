@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RICHMAN Roadshow — Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f7f6;
+  --surface: #ffffff;
+  --surface2: #f2f2f0;
+  --border: #e4e4e0;
+  --border2: #d0d0ca;
+  --text: #1a1a18;
+  --text2: #5a5a55;
+  --text3: #9a9a94;
+  --accent: #1a1a18;
+  --green: #22863a;
+  --green-bg: #eafaf0;
+  --green-light: #d4f0dc;
+  --red: #c0392b;
+  --red-bg: #fdf0ee;
+  --red-light: #fad9d5;
+  --amber: #b45309;
+  --amber-bg: #fffbeb;
+  --amber-light: #fde68a;
+  --blue: #1d4ed8;
+  --blue-bg: #eff6ff;
+  --blue-light: #dbeafe;
+  --purple: #6d28d9;
+  --purple-bg: #f5f3ff;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge {
+  background: var(--accent);
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+.brand-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+.school-selector {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.school-selector label {
+  font-size: 12px;
+  color: var(--text2);
+  white-space: nowrap;
+}
+.school-selector select {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  max-width: 240px;
+}
+.school-selector select:focus { outline: none; border-color: var(--accent); }
+
+/* ── TABS ── */
+.tabs-wrap {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs-wrap::-webkit-scrollbar { display: none; }
+.tabs {
+  display: flex;
+  padding: 0 20px;
+  gap: 0;
+  min-width: max-content;
+}
+.tab-btn {
+  padding: 12px 18px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+.tab-badge {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--surface2);
+  color: var(--text2);
+  padding: 1px 5px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.tab-btn.active .tab-badge { background: var(--accent); color: #fff; }
+
+/* ── MAIN LAYOUT ── */
+.main { max-width: 900px; margin: 0 auto; padding: 24px 20px; }
+
+/* ── DASHBOARD ── */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-sub { font-size: 12px; color: var(--text2); }
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+.progress-fill.green { background: var(--green); }
+.progress-fill.amber { background: var(--amber); }
+.progress-fill.red { background: var(--red); }
+
+.section-progress {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+}
+.sp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sp-row:last-child { border-bottom: none; }
+.sp-name { font-size: 13px; font-weight: 500; flex: 1; }
+.sp-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text2); white-space: nowrap; }
+.sp-bar { width: 120px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.sp-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.4s; }
+.sp-pct { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text3); width: 32px; text-align: right; }
+
+/* ── CHECKLIST ── */
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.section-header {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.section-header-left { display: flex; align-items: center; gap: 10px; flex: 1; }
+.section-icon { font-size: 16px; }
+.section-title { font-weight: 600; font-size: 14px; }
+.section-meta { font-size: 12px; color: var(--text3); font-family: 'IBM Plex Mono', monospace; }
+.section-chevron { color: var(--text3); transition: transform 0.2s; font-size: 12px; }
+.section-card.collapsed .section-chevron { transform: rotate(-90deg); }
+.section-body { border-top: 1px solid var(--border); }
+.section-card.collapsed .section-body { display: none; }
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item:hover { background: var(--surface2); }
+.checklist-item.done { background: var(--green-bg); }
+.checklist-item.done .item-text { text-decoration: line-through; color: var(--text3); }
+
+.item-check {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--border2);
+  border-radius: 5px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: all 0.15s;
+  background: var(--surface);
+}
+.item-check:hover { border-color: var(--green); }
+.checklist-item.done .item-check {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.item-check svg { display: none; }
+.checklist-item.done .item-check svg { display: block; }
+
+.item-main { flex: 1; min-width: 0; }
+.item-text { font-size: 13px; font-weight: 500; color: var(--text); }
+.item-note { font-size: 11px; color: var(--text2); margin-top: 2px; font-style: italic; }
+.item-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.item-owner {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  background: var(--surface2);
+  color: var(--text2);
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.item-time {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text3);
+  white-space: nowrap;
+}
+
+/* Alert badges */
+.alert-critical {
+  background: var(--red-bg);
+  border-left: 3px solid var(--red);
+}
+.alert-warning {
+  background: var(--amber-bg);
+  border-left: 3px solid var(--amber);
+}
+.alert-watch {
+  background: var(--blue-bg);
+  border-left: 3px solid var(--blue);
+}
+
+/* ── INVENTORY ── */
+.inv-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.inv-toolbar-title { font-weight: 600; font-size: 14px; flex: 1; }
+.btn {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn:hover { background: var(--surface2); }
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: #333; }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: #1a6b2e; }
+.btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+
+.inv-table-wrap { overflow-x: auto; }
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.inv-table th {
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.inv-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.inv-table tr:last-child td { border-bottom: none; }
+.inv-table tr:hover td { background: var(--surface2); }
+.inv-table tr.row-alert td { background: var(--red-bg); }
+.inv-table tr.row-warn td { background: var(--amber-bg); }
+
+.inv-name { font-weight: 500; }
+.inv-category {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.cat-booth { background: var(--blue-light); color: var(--blue); }
+.cat-merch { background: var(--purple-bg); color: var(--purple); }
+.cat-voucher { background: var(--green-light); color: var(--green); }
+.cat-consume { background: var(--amber-light); color: var(--amber); }
+.cat-tech { background: #e0e7ff; color: #3730a3; }
+
+.stock-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 15px;
+}
+.stock-num.ok { color: var(--green); }
+.stock-num.warn { color: var(--amber); }
+.stock-num.danger { color: var(--red); }
+
+.stock-controls { display: flex; align-items: center; gap: 6px; }
+.stock-btn {
+  width: 26px; height: 26px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border2);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.1s;
+  color: var(--text);
+}
+.stock-btn:hover { background: var(--surface2); border-color: var(--accent); }
+.stock-input {
+  width: 54px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px;
+  border: 1.5px solid var(--border2);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text);
+}
+.stock-input:focus { outline: none; border-color: var(--accent); }
+
+.alert-pill {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.alert-pill.danger { background: var(--red-light); color: var(--red); }
+.alert-pill.warn { background: var(--amber-light); color: var(--amber); }
+.alert-pill.ok { background: var(--green-light); color: var(--green); }
+
+/* Upload thumb */
+.upload-cell { display: flex; align-items: center; gap: 6px; }
+.upload-thumb {
+  width: 32px; height: 32px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border2);
+  object-fit: cover;
+  cursor: pointer;
+}
+.upload-label {
+  width: 32px; height: 32px;
+  border-radius: 5px;
+  border: 1.5px dashed var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--text3);
+  font-size: 16px;
+  transition: all 0.15s;
+}
+.upload-label:hover { border-color: var(--accent); color: var(--accent); }
+.upload-input { display: none; }
+
+/* Add item modal */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%; max-width: 440px;
+  box-shadow: var(--shadow-md);
+}
+.modal h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.modal-fields { display: flex; flex-direction: column; gap: 12px; }
+.field label { display: block; font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 5px; }
+.field input, .field select {
+  width: 100%; padding: 8px 10px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 13px;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+
+/* Alert banner */
+.alert-banner {
+  background: var(--red-bg);
+  border: 1px solid var(--red-light);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--red);
+}
+
+/* Export bar */
+.export-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+  flex-wrap: wrap;
+}
+.export-bar-label { font-size: 12px; color: var(--text2); flex: 1; }
+
+/* Section color accents */
+.sh-preplan { border-left: 3px solid #6d28d9; }
+.sh-booth { border-left: 3px solid #1d4ed8; }
+.sh-mechanic { border-left: 3px solid #22863a; }
+.sh-rain { border-left: 3px solid #c0392b; }
+.sh-transport { border-left: 3px solid #b45309; }
+.sh-batch { border-left: 3px solid #0f766e; }
+.sh-inventory { border-left: 3px solid #7c3aed; }
+
+/* Tab pane */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 40px 20px; color: var(--text3); }
+.empty-state .emoji { font-size: 36px; margin-bottom: 8px; }
+.empty-state p { font-size: 13px; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .topbar { padding: 10px 14px; gap: 10px; }
+  .main { padding: 16px 14px; }
+  .tabs { padding: 0 14px; }
+  .tab-btn { padding: 10px 12px; font-size: 12px; }
+  .sp-bar { width: 70px; }
+  .inv-table th, .inv-table td { padding: 8px 10px; }
+  .dashboard-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Print */
+@media print {
+  .topbar, .tabs-wrap, .btn, .modal-overlay, .stock-controls { display: none !important; }
+  .tab-pane { display: block !important; }
+  .section-card.collapsed .section-body { display: block !important; }
+}
+
+.note-inline {
+  font-size: 11px;
+  color: var(--text3);
+  font-style: italic;
+  padding: 6px 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.school-banner {
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.school-banner-name { font-size: 15px; font-weight: 600; }
+.school-banner-meta { font-size: 12px; opacity: 0.7; }
+.school-banner-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px; margin-left: auto; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <span class="brand-badge">RMS</span>
+    <span class="brand-title">Roadshow Checklist</span>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <span id="sync-status" style="font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text3)">🔄 กำลังเชื่อมต่อ...</span>
+    <div class="school-selector">
+      <label>โรงเรียน:</label>
+      <select id="schoolSelect" onchange="onSchoolChange()">
+        <option value="">— เลือกโรงเรียน —</option>
+        <option value="1|โรงเรียนเบญจมราชานุสรณ์|นนทบุรี|28 พ.ค. 2569|The ped|UPC|https://maps.app.goo.gl/7jqCzJTgppyCH4pn6|2500">โรงเรียนเบญจมราชานุสรณ์ (28 พ.ค.)</option>
+        <option value="2|โรงเรียนศรีบุณยานนท์|นนทบุรี|9 มิ.ย. 2569|Soomnyvivii Ch|UPC|https://maps.app.goo.gl/4HPyjULkmtxVVxCG9|2500">โรงเรียนศรีบุณยานนท์ (9 มิ.ย.)</option>
+        <option value="3|โรงเรียนพระปฐมวิทยาลัย|นครปฐม|11 มิ.ย. 2569|kyutae oppa|UPC|https://maps.app.goo.gl/BVnWNNPLRaupfATGA|3600">โรงเรียนพระปฐมวิทยาลัย (11 มิ.ย.)</option>
+        <option value="4|โรงเรียนศึกษานารี|กรุงเทพ|15 มิ.ย. 2569|softpomz|BKK|https://maps.app.goo.gl/aBJb8aPZSnjNi67VA|2600">โรงเรียนศึกษานารี (15 มิ.ย.)</option>
+        <option value="5|โรงเรียนมัธยมวัดหนองแขม|กรุงเทพ|18 มิ.ย. 2569|NRsportsRadio|BKK|https://maps.app.goo.gl/FrqPPt1qciRwT7U5A|3000">โรงเรียนมัธยมวัดหนองแขม (18 มิ.ย.)</option>
+        <option value="6|โรงเรียนบ้านสวน(จันอนุสรณ์)|ชลบุรี|3 ก.ค. 2569|Jubjang .ch|UPC|https://maps.app.goo.gl/Yq4VKEBENSDARBL1A|2300">โรงเรียนบ้านสวน-จันอนุสรณ์ (3 ก.ค.)</option>
+        <option value="7|โรงเรียนรัตนโกสินทร์สมโภชบางขุนเทียน|กรุงเทพ|9 ก.ค. 2569|Soomnyvivii Ch|BKK|https://maps.app.goo.gl/hayAZPG3Rg6j8WXFA|3200">โรงเรียนรัตนโกสินทร์ฯ บางขุนเทียน (9 ก.ค.)</option>
+        <option value="8|โรงเรียนสตรีวัดมหาพฤฒาราม|กรุงเทพ|6 ส.ค. 2569|softpomz|BKK|https://maps.app.goo.gl/TiY5f7pKgrBF2psK6|2100">โรงเรียนสตรีวัดมหาพฤฒาราม (6 ส.ค.)</option>
+        <option value="9|โรงเรียนบางพลีราษฎร์บำรุง|สมุทรปราการ|7 ส.ค. 2569|kyutae oppa|UPC|https://maps.app.goo.gl/4f5FQKKs51gvL1Hm6|3405">โรงเรียนบางพลีราษฎร์บำรุง (7 ส.ค.)</option>
+        <option value="10|โรงเรียนเทพศิรินทร์|กรุงเทพ|18 ส.ค. 2569|kyutae oppa|BKK|https://maps.app.goo.gl/zMBVHg7uCEokW36h9|3100">โรงเรียนเทพศิรินทร์ (18 ส.ค.)</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('preplan')">📋 Pre-Planning</button>
+    <button class="tab-btn" onclick="switchTab('booth')">📦 Booth Setup</button>
+    <button class="tab-btn" onclick="switchTab('mechanic')">🎮 Mechanic</button>
+    <button class="tab-btn" onclick="switchTab('rain')">🌧️ Rain Plan</button>
+    <button class="tab-btn" onclick="switchTab('transport')">🚌 Transport</button>
+    <button class="tab-btn" onclick="switchTab('batch')">🪪 Batch</button>
+    <button class="tab-btn" onclick="switchTab('inventory')">📦 Inventory <span class="tab-badge" id="inv-alert-badge" style="display:none;background:#c0392b;color:#fff">!</span></button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ─── DASHBOARD ─── -->
+<div id="tab-dashboard" class="tab-pane active">
+  <div id="no-school-msg" class="empty-state">
+    <div class="emoji">🏫</div>
+    <p>เลือกโรงเรียนด้านบนเพื่อเริ่มใช้งาน Checklist</p>
+  </div>
+  <div id="dashboard-content" style="display:none">
+    <div id="school-banner-dash" class="school-banner">
+      <div style="flex:1">
+        <div class="school-banner-name" id="sb-name">—</div>
+        <div class="school-banner-meta" id="sb-meta">—</div>
+        <div id="sb-rules" style="margin-top:6px;font-size:11px;opacity:0.85;line-height:1.7"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
+        <div class="school-banner-date" id="sb-date">—</div>
+        <a id="sb-maps" href="#" target="_blank" style="font-size:11px;color:#fff;background:rgba(255,255,255,0.18);padding:3px 9px;border-radius:4px;text-decoration:none;font-family:'IBM Plex Mono',monospace;display:none">📍 Google Maps</a>
+      </div>
+    </div>
+    <div class="dashboard-grid" id="stat-cards"></div>
+    <div class="section-card sh-preplan">
+      <div class="section-header" style="cursor:default">
+        <div class="section-header-left">
+          <span class="section-title">ความคืบหน้าแต่ละหมวด</span>
+        </div>
+      </div>
+      <div class="section-body">
+        <div id="section-progress-list" style="padding: 4px 0;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PRE-PLANNING ─── -->
+<div id="tab-preplan" class="tab-pane">
+  <div id="preplan-list"></div>
+</div>
+
+<!-- ─── BOOTH SETUP ─── -->
+<div id="tab-booth" class="tab-pane">
+  <div id="booth-list"></div>
+</div>
+
+<!-- ─── MECHANIC ─── -->
+<div id="tab-mechanic" class="tab-pane">
+  <div id="mechanic-list"></div>
+</div>
+
+<!-- ─── RAIN PLAN ─── -->
+<div id="tab-rain" class="tab-pane">
+  <div id="rain-list"></div>
+</div>
+
+<!-- ─── TRANSPORT ─── -->
+<div id="tab-transport" class="tab-pane">
+  <div id="transport-list"></div>
+</div>
+
+<!-- ─── BATCH ─── -->
+<div id="tab-batch" class="tab-pane">
+  <div id="batch-list"></div>
+</div>
+
+<!-- ─── INVENTORY ─── -->
+<div id="tab-inventory" class="tab-pane">
+  <div id="inv-alert-banner" class="alert-banner" style="display:none">
+    ⚠️ มีสินค้าที่ Stock ใกล้หมดหรือหมดแล้ว — ตรวจสอบด้านล่าง
+  </div>
+  <div class="section-card sh-inventory">
+    <div class="inv-toolbar">
+      <span class="inv-toolbar-title">📦 Inventory — Stock & อุปกรณ์</span>
+      <button class="btn btn-primary" onclick="openAddModal()">＋ เพิ่มรายการ</button>
+      <button class="btn" onclick="exportInventoryPDF()">📄 Export PDF</button>
+    </div>
+    <div class="inv-table-wrap">
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>รายการ</th>
+            <th>หมวด</th>
+            <th>Stock เริ่มต้น</th>
+            <th>ใช้ไป</th>
+            <th>คงเหลือ</th>
+            <th>Status</th>
+            <th>รูป/หลักฐาน</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="inv-tbody"></tbody>
+      </table>
+    </div>
+    <div class="export-bar">
+      <span class="export-bar-label">💡 กด + / − เพื่อคีย์ out stock  |  Upload รูปเพื่อแนบหลักฐาน</span>
+      <button class="btn" onclick="resetInventoryConfirm()">🔄 Reset Stock</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<!-- ADD ITEM MODAL -->
+<div id="add-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <h3>เพิ่มรายการ Inventory</h3>
+    <div class="modal-fields">
+      <div class="field">
+        <label>ชื่อรายการ</label>
+        <input type="text" id="new-name" placeholder="เช่น Backdrop หลัก">
+      </div>
+      <div class="field">
+        <label>หมวด</label>
+        <select id="new-cat">
+          <option value="booth">Booth Items</option>
+          <option value="merch">Merch / ของรางวัล</option>
+          <option value="voucher">Voucher</option>
+          <option value="consume">Consumables</option>
+          <option value="tech">Tech / Devices</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Stock เริ่มต้น</label>
+        <input type="number" id="new-stock" min="0" value="1">
+      </div>
+      <div class="field">
+        <label>Alert เมื่อเหลือน้อยกว่า (จำนวน)</label>
+        <input type="number" id="new-alert" min="0" value="2">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeAddModal()">ยกเลิก</button>
+      <button class="btn btn-primary" onclick="addInventoryItem()">เพิ่มรายการ</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// SYNC — Netlify Function Proxy
+// ══════════════════════════════════════════
+const PROXY_URL = '/api/sync';
+const SYNC_INTERVAL = 10000;
+let syncTimer = null, lastSyncTime = null, isSyncing = false;
+const IMG_CACHE = {};
+function getImgKey(sId, iId) { return `${sId}_${iId}`; }
+
+function setSyncStatus(state, msg) {
+  const el = document.getElementById('sync-status');
+  if (!el) return;
+  const icons = {ok:'✓',saving:'⏳',error:'⚠',loading:'🔄'};
+  const colors = {ok:'var(--green)',saving:'var(--amber)',error:'var(--red)',loading:'var(--text3)'};
+  el.textContent = `${icons[state]||''} ${msg}`;
+  el.style.color = colors[state]||'var(--text2)';
+}
+
+async function saveToSheets() {
+  if (!Object.keys(SCHOOL_DATA).length) return;
+  isSyncing = true; setSyncStatus('saving','กำลังบันทึก...');
+  try {
+    const slim = JSON.parse(JSON.stringify(SCHOOL_DATA));
+    Object.values(slim).forEach(sd => { if (sd.inventory) sd.inventory.forEach(i => { delete i.img; }); });
+    const resp = await fetch(PROXY_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'write',data:slim}) });
+    const r = await resp.json();
+    if (r && r.ok) { lastSyncTime = new Date(); setSyncStatus('ok','บันทึกแล้ว '+lastSyncTime.toLocaleTimeString('th-TH')); }
+    else setSyncStatus('error','บันทึกไม่สำเร็จ');
+  } catch(e) { setSyncStatus('error','บันทึกไม่สำเร็จ: '+e.message); }
+  isSyncing = false;
+}
+
+async function loadFromSheets() {
+  setSyncStatus('loading','กำลังโหลด...');
+  try {
+    const resp = await fetch(PROXY_URL+'?action=read&t='+Date.now());
+    if (!resp.ok) { setSyncStatus('error','โหลดไม่สำเร็จ ('+resp.status+')'); return; }
+    const data = await resp.json();
+    if (!data || Object.keys(data).length===0) { setSyncStatus('ok','พร้อมใช้งาน'); return; }
+    Object.entries(data).forEach(([sid, rd]) => {
+      if (!SCHOOL_DATA[sid]) {
+        SCHOOL_DATA[sid] = { checks: rd.checks||{}, inventory: buildDefaultInventory() };
+      } else {
+        SCHOOL_DATA[sid].checks = rd.checks||{};
+      }
+      if (rd.inventory && SCHOOL_DATA[sid].inventory) {
+        rd.inventory.forEach(ri => {
+          const loc = SCHOOL_DATA[sid].inventory.find(i => String(i.id)===String(ri.id));
+          if (loc) { loc.initial=ri.initial; loc.used=ri.used; loc.img=IMG_CACHE[getImgKey(sid,loc.id)]||null; }
+        });
+      }
+    });
+    lastSyncTime = new Date();
+    setSyncStatus('ok','ซิงค์แล้ว '+lastSyncTime.toLocaleTimeString('th-TH'));
+    if (currentSchool && SCHOOL_DATA[currentSchool.id]) renderAll();
+  } catch(e) { setSyncStatus('error','โหลดไม่สำเร็จ: '+e.message); }
+}
+
+function scheduleSave() { clearTimeout(syncTimer); syncTimer = setTimeout(saveToSheets, 2000); }
+function startPolling() { setInterval(async()=>{ if(!isSyncing) await loadFromSheets(); }, SYNC_INTERVAL); }
+window.addEventListener('load', async()=>{ await loadFromSheets(); startPolling(); });
+
+// ══════════════════════════════════════════
+// CHECKLIST DATA
+// ══════════════════════════════════════════
+const CHECKLISTS = {
+  preplan: {
+    label:"Pre-Planning & Agenda", icon:"📋", colorClass:"sh-preplan",
+    sections:[
+      { title:"🕐 Timeline ประจำวันงาน", items:[
+        {text:"08.00 — เดินทางถึงโรงเรียน / พื้นที่ Booth",note:"ต้องถึงก่อน 08.30 เสมอ",owner:"ทีมงาน",time:"08.00"},
+        {text:"08.30 — Set up Booth ติดตั้ง Backdrop จัดวางสิ่งของ",note:"ดู Booth Setup Tab",owner:"Staff A+B",time:"08.30"},
+        {text:"09.00–13.00 — เปิด Booth Activities",note:"ดู Mechanic Tab",owner:"ทีมงาน",time:"09.00"},
+        {text:"13.00–13.30 — พักกลางวัน (สลับกันพัก ห้ามปิดบูธพร้อมกัน)",owner:"Supervisor",time:"13.00"},
+        {text:"13.30–15.30 — Auditorium: Opening, Influencer, Kahoot!, Mini Concert, Closing",owner:"Influencer+MC",time:"13.30"},
+        {text:"15.00 — เริ่ม Tear down / Demolish Booth",owner:"Staff A+B",time:"15.00"},
+        {text:"15.30 — ส่งรายงานสรุปประจำวัน (Voucher, Merch, Line Add)",owner:"Supervisor",time:"15.30"},
+      ]},
+      { title:"📅 3 วันก่อนวันงาน", items:[
+        {text:"Confirm โรงเรียน วัน และเวลาจัดกิจกรรมอีกครั้ง",note:"โทร/Line ยืนยันกับประสานงานโรงเรียน",owner:"Supervisor"},
+        {text:"Confirm Influencer และส่ง Itinerary",owner:"Supervisor"},
+        {text:"นับ Stock Voucher เทียบกับจำนวนนักเรียน + Buffer 10%",owner:"Staff B"},
+        {text:"นับ Stock Merch / ของรางวัล",owner:"Staff B"},
+        {text:"Print QR Code อย่างน้อย 3 แผ่น A3 (ลามกันน้ำถ้าทำได้)",owner:"Staff B"},
+        {text:"ทดสอบ QR Code → Add Line ได้จริง (ทดสอบ 2 เครื่องต่างระบบ)",owner:"Staff B"},
+        {text:"เตรียม Batch / Badge ทุกคน (ดู Batch Tab)",owner:"Supervisor"},
+        {text:"ตรวจสอบ Backdrop / Banner ไม่มีรอยพับ/ขาด",owner:"Staff A"},
+        {text:"Pack อุปกรณ์ทั้งหมด ตรวจว่าครบ (ดู Booth Setup Tab)",owner:"Staff A"},
+        {text:"Confirm Transportation: Van/Bus (UPC) หรือแจ้ง Staff BKK",owner:"Supervisor"},
+      ]},
+      { title:"📅 1 วันก่อนวันงาน", items:[
+        {text:"ตรวจสอบพยากรณ์อากาศวันงาน",note:"ถ้ามีฝน → เปิด Rain Plan Tab",owner:"Supervisor"},
+        {text:"Confirm เส้นทาง + เวลาเดินทาง เผื่อการจราจร 30–45 นาที",owner:"Supervisor"},
+        {text:"แจ้ง Staff: นัดหมายเวลา, จุด Meet-up, Dress Code ผ่าน Line Group",owner:"Supervisor"},
+        {text:"ชาร์จแบต: มือถือ, Tablet, Power Bank ทุกเครื่องให้เต็ม 100%",owner:"ทีมงาน"},
+        {text:"เตรียม Petty Cash สำหรับค่าใช้จ่ายฉุกเฉิน",owner:"Supervisor"},
+        {text:"เตรียม Contact List: รร., Influencer, Driver — Save ในโทรศัพท์ + Print สำรอง",owner:"Supervisor"},
+      ]},
+      { title:"☀️ เช้าวันงาน", items:[
+        {text:"เช็คพยากรณ์อากาศอีกครั้ง ถ้าฝน → เปิด Contingency Plan",note:"ตัดสินใจก่อน 07.00",owner:"Supervisor"},
+        {text:"Supervisor ออกเดินทางก่อน Staff อื่น 30 นาที",owner:"Supervisor"},
+        {text:"Staff แจ้ง ETA ใน Line Group ก่อนถึง 15 นาที",owner:"ทีมงาน"},
+        {text:"Supervisor Verify Batch ทุกคนก่อนเข้า รร. (BKK เท่านั้น)",note:"ดู Batch Tab",owner:"Supervisor"},
+        {text:"ถ่ายรูปทีมพร้อม ส่ง Brand/Client",owner:"Staff A"},
+      ]},
+    ]
+  },
+  booth: {
+    label:"Booth Setup", icon:"📦", colorClass:"sh-booth",
+    sections:[
+      { title:"🚗 ก่อนออกเดินทาง — เตรียมอุปกรณ์", items:[
+        {text:"Backdrop หลัก (RICHMAN สัญจรโรงเรียน)",owner:"Staff A"},
+        {text:"Roll-up Banner พร้อม Stand",owner:"Staff A"},
+        {text:"ผ้าคลุมโต๊ะ RMS (สีดำ)",owner:"Staff A"},
+        {text:"โต๊ะ (ถ้าต้องนำไปเอง)",owner:"Staff A"},
+        {text:"Standee / Pop-up Display",owner:"Staff A"},
+        {text:"QR Code สำหรับ Add Line (Print A3 อย่างน้อย 2 แผ่น)",owner:"Staff B"},
+        {text:"Voucher สำหรับแจก (นับจำนวนให้ครบก่อนออกเดินทาง)",owner:"Staff B"},
+        {text:"Merch / ของรางวัล (เสื้อ, สินค้า ฯลฯ)",owner:"Staff B"},
+        {text:"อุปกรณ์เกม (Tablet, Console ฯลฯ ถ้ามี)",owner:"Staff B"},
+        {text:"สายไฟต่อพ่วง / รางปลั๊ก",owner:"Staff A"},
+        {text:"เทปกาว / เทปโฟม / กรรไกร",owner:"Staff A"},
+        {text:"Batch / Badge + เสื้อ Uniform ทุกคน",owner:"ทีมงาน"},
+        {text:"โทรศัพท์มือถือ (ชาร์จเต็ม + Power Bank)",owner:"ทีมงาน"},
+        {text:"เอกสารตารางโรงเรียน / ใบ Confirm",owner:"Supervisor"},
+      ]},
+      { title:"🔧 การติดตั้ง Backdrop / Banner", items:[
+        {text:"วัด/ตรวจสอบพื้นที่ที่ได้รับอนุญาตจากโรงเรียน",owner:"Supervisor"},
+        {text:"ติดตั้ง Backdrop หลักให้ตึงและตรง",owner:"Staff A"},
+        {text:"ตรวจสอบว่า Backdrop ไม่บัง / ไม่เอียง",owner:"Staff A"},
+        {text:"ติดตั้ง Roll-up Banner ด้านข้างบูธ",owner:"Staff A"},
+        {text:"ติด QR Code ในจุดที่มองเห็นได้ชัดเจน",owner:"Staff B"},
+        {text:"ตรวจสอบตัวอักษรและภาพบน Banner ไม่มีรอยพับ",owner:"Staff A"},
+        {text:"ถ่ายรูป Setup เสร็จสิ้น ส่ง Supervisor",owner:"Staff A"},
+      ]},
+      { title:"🗃️ การจัดวางโต๊ะและสิ่งของบนบูธ", items:[
+        {text:"คลุมโต๊ะด้วยผ้า RMS สีดำเรียบร้อย",owner:"Staff A"},
+        {text:"วาง Standee / Display บนหรือข้างโต๊ะ",owner:"Staff B"},
+        {text:"จัด Voucher ให้เป็นระเบียบ (แยกใส่กล่อง/ถาด)",owner:"Staff B"},
+        {text:"วาง Merch / ของรางวัลให้มองเห็นชัดเจน",owner:"Staff B"},
+        {text:"ติดตั้งอุปกรณ์เกม ทดสอบให้พร้อม",owner:"Staff B"},
+        {text:"วาง QR Code ในจุดที่หยิบง่ายและมองเห็นได้",owner:"Staff B"},
+        {text:"ตรวจสอบบูธดูเป็นระเบียบและสวยงาม",owner:"Supervisor"},
+      ]},
+      { title:"💡 ระบบไฟและไฟฟ้า", items:[
+        {text:"หาจุดเสียบปลั๊กของโรงเรียน (ขออนุญาต)",owner:"Supervisor"},
+        {text:"ต่อสายไฟ / รางปลั๊กให้เรียบร้อย",owner:"Staff A"},
+        {text:"ซ่อนสายไฟไม่ให้เกะกะทางเดิน (ใช้เทป)",owner:"Staff A"},
+        {text:"ทดสอบไฟทำงานปกติก่อนเปิดบูธ",owner:"Staff A"},
+        {text:"ชาร์จแบตอุปกรณ์เกม / Tablet ให้เต็ม",owner:"Staff B"},
+      ]},
+      { title:"✅ ตรวจสอบสุดท้ายก่อนเปิดบูธ", items:[
+        {text:"ถ่ายรูปบูธทุกมุม ส่งให้ทีม",owner:"Staff A"},
+        {text:"นับ Voucher และ Merch ก่อนเปิด",owner:"Staff B"},
+        {text:"ทดสอบ QR Code Scan → Add Line ได้จริง",owner:"Staff B"},
+        {text:"Staff ทุกคนพร้อม / ใส่ Uniform ครบ",owner:"Supervisor"},
+        {text:"แจ้ง Supervisor ว่าพร้อมเปิดบูธ",owner:"Supervisor"},
+      ]},
+    ]
+  },
+  mechanic: {
+    label:"Mechanic Flow", icon:"🎮", colorClass:"sh-mechanic",
+    sections:[
+      { title:"📲 STEP 1 — Scan QR Code เพื่อ Add Line", items:[
+        {text:"Staff ทักทายและแนะนำกิจกรรมให้นักเรียนฟัง (ไม่เกิน 30 วินาที)",owner:"Staff บูธ"},
+        {text:"ชี้ให้นักเรียนเห็น QR Code ที่บูธ",owner:"Staff บูธ"},
+        {text:"นักเรียน Scan QR Code ด้วยมือถือของตัวเอง",owner:"นักเรียน"},
+        {text:"นักเรียนกด 'Add Friend' เพื่อ Add Line Official",note:"ตรวจสอบว่า Add สำเร็จ (มีข้อความต้อนรับ)",owner:"นักเรียน"},
+        {text:"Staff ตรวจสอบว่า Add Line สำเร็จแล้ว",owner:"Staff บูธ"},
+      ]},
+      { title:"🎟️ STEP 2 — รับ Voucher", items:[
+        {text:"Staff มอบ Voucher ให้กับนักเรียน 1 ใบ (1 คน / 1 ใบเท่านั้น)",owner:"Staff บูธ"},
+        {text:"แจ้งเงื่อนไขการใช้ Voucher และวิธีใช้ใน App/เว็บ RMS",owner:"Staff บูธ"},
+        {text:"บันทึกจำนวน Voucher ที่แจกออกไป (กรอกใน Inventory)",owner:"Staff บันทึก"},
+      ]},
+      { title:"📸 STEP 3 — รับ Merch (Optional) ด้วย Social Content", items:[
+        {text:"แจ้งนักเรียนว่าสามารถรับ Merch ฟรีได้ถ้าทำ Content (ไม่บังคับ)",owner:"Staff บูธ"},
+        {text:"นักเรียนถ่ายรูป/วิดีโอที่บูธ RICHMAN (ต้องมี Backdrop ในภาพ)",owner:"นักเรียน"},
+        {text:"นักเรียน Post ลง Social พร้อม Hashtag ที่กำหนด",note:"#Richmanสัญจรโรงเรียน",owner:"นักเรียน"},
+        {text:"Staff ตรวจสอบโพสต์ว่า Public และมี Hashtag ครบ",owner:"Staff บูธ"},
+        {text:"มอบ Merch ให้นักเรียน 1 ชิ้น + นับ Stock ลดใน Inventory",owner:"Staff บูธ"},
+      ]},
+      { title:"🕹️ STEP 4 — เล่นเกมเพื่อรับรางวัล", items:[
+        {text:"Staff อธิบายกติกาเกมให้นักเรียนฟัง (ไม่เกิน 1 นาที)",owner:"Staff บูธ"},
+        {text:"ทดสอบอุปกรณ์เกมว่าพร้อมใช้งานก่อนนักเรียนเล่น",owner:"Staff บูธ"},
+        {text:"นักเรียนเล่นเกม 1 รอบ",owner:"นักเรียน"},
+        {text:"ตรวจสอบผลการเล่น (ชนะ / แพ้ / เงื่อนไขอื่น)",owner:"Staff บูธ"},
+        {text:"มอบรางวัลตามผลการเล่น + นับ Stock ลดใน Inventory",owner:"Staff บูธ"},
+        {text:"บันทึกจำนวนนักเรียนที่เล่นเกมในวันนั้น",owner:"Staff บันทึก"},
+      ]},
+      { title:"📊 สิ้นสุดวัน — สรุปและปิดบูธ", items:[
+        {text:"นับ Voucher คงเหลือ บันทึกจำนวนที่แจกไป",owner:"Staff บันทึก"},
+        {text:"นับ Merch คงเหลือ บันทึกจำนวนที่แจกไป",owner:"Staff บันทึก"},
+        {text:"สรุปจำนวน Line Add ทั้งหมดของวันนั้น (ดูจาก Line OA Dashboard)",owner:"Supervisor"},
+        {text:"ถ่ายรูปบูธก่อนรื้อถอน",owner:"Staff A"},
+        {text:"รื้อถอนและเก็บอุปกรณ์ให้ครบทุกชิ้น",owner:"ทีมงาน"},
+        {text:"ส่งรายงานสรุปให้ Supervisor ทาง Line ภายใน 2 ชม.",owner:"Supervisor"},
+      ]},
+    ]
+  },
+  rain: {
+    label:"Rain Plan", icon:"🌧️", colorClass:"sh-rain",
+    sections:[
+      { title:"⚠️ Alert Levels — ระดับการแจ้งเตือน", items:[
+        {text:"🟡 WATCH: พยากรณ์ฝน >30% — แจ้งทีมเฝ้าระวัง เตรียม Plan B",note:"เช็คพยากรณ์ทุก 3 ชม.",owner:"Supervisor",alertClass:"alert-watch"},
+        {text:"🟠 WARNING: ฝนหนัก >60% หรือฝนเริ่มตกช่วงเช้า — ประสาน รร. ขอพื้นที่ในร่ม",note:"ตัดสินใจก่อน 07.00",owner:"Supervisor",alertClass:"alert-warning"},
+        {text:"🔴 CRITICAL: ฝนตกหนักมาก / พายุ — เลื่อนหรือย้าย Venue ทันที แจ้ง Influencer + Brand",note:"ตัดสินใจก่อน 06.00",owner:"Supervisor",alertClass:"alert-critical"},
+      ]},
+      { title:"🏫 Booth — แผนปรับ Setup เมื่อฝนตก", items:[
+        {text:"ฝนตกเบา: ขย้าย Booth เข้าชายคา / โรงอาหาร / ระเบียง",note:"ขอ Permission จาก รร. ก่อนเสมอ",owner:"Staff A + Supervisor"},
+        {text:"ฝนตกหนัก: ปิด Backdrop ด้วย Plastic Sheet ย้าย Merch เข้าร่ม",note:"ห้ามให้อุปกรณ์ไฟฟ้าโดนน้ำ",owner:"ทีมงาน"},
+        {text:"ฝนตกตลอดวัน: ขอห้องอาคารใน รร. เป็น Booth ชั่วคราว",note:"ถ้าไม่ได้ → พิจารณาเลื่อน",owner:"Supervisor"},
+        {text:"น้ำท่วม / เส้นทางอันตราย: หยุดกิจกรรมทันที ประสาน Brand ขอเลื่อนวัน",note:"Safety First ไม่มีข้อยกเว้น",owner:"Supervisor"},
+        {text:"ห่อของทุกชิ้นด้วย Plastic ก่อนขนออกรถถ้ามีฝน",owner:"ทีมงาน"},
+        {text:"เตรียม Umbrella / Rain Coat ในรถทุกครั้ง",owner:"ทีมงาน"},
+        {text:"Print QR Code สำรองเพิ่ม 2 แผ่น ใส่ Ziploc (กันกรณีเปียก)",owner:"Staff B"},
+      ]},
+      { title:"🎤 Stage / Auditorium — แผนรับมือถ้าใช้ไม่ได้", items:[
+        {text:"Auditorium ไม่พร้อม / ไฟดับ: ขอห้องประชุมใหญ่หรือโรงยิมแทน",note:"แจ้ง Influencer ทันที",owner:"Supervisor"},
+        {text:"ฝนตกขณะกิจกรรม Stage: ย้ายเข้าอาคาร หรือปรับเป็น Q&A Intimate",owner:"MC + Supervisor"},
+        {text:"ฟ้าผ่า / พายุ: หยุดกิจกรรมทันที พา Audience เข้าอาคาร",owner:"ทีมงาน"},
+      ]},
+      { title:"📞 Emergency Contact — โทรหาใครถ้าฝนตกหนัก", items:[
+        {text:"ประสานงานโรงเรียน — เพื่อขอพื้นที่ในร่ม / เลื่อนกิจกรรม",note:"บันทึกเบอร์ก่อนวันงานเสมอ",owner:"Supervisor"},
+        {text:"Brand Manager / Client — แจ้งสถานการณ์ + รอ Approve การเลื่อน",owner:"Supervisor"},
+        {text:"Influencer Manager — แจ้ง Schedule เปลี่ยน",owner:"Supervisor"},
+        {text:"Driver (UPC) — แจ้งถ้าต้องออกเดินทางเร็วขึ้น/ช้าลง",owner:"Supervisor"},
+      ]},
+    ]
+  },
+  transport: {
+    label:"Transport", icon:"🚌", colorClass:"sh-transport",
+    sections:[
+      { title:"🚐 UPC — นนทบุรี / นครปฐม / ชลบุรี / สมุทรปราการ (จองรถ Van/Bus)", items:[
+        {text:"จองรถ Van / Bus ล่วงหน้าอย่างน้อย 7 วัน",owner:"Supervisor"},
+        {text:"Confirm จำนวน Staff และน้ำหนักสัมภาระกับ Driver",owner:"Supervisor"},
+        {text:"กำหนด Meeting Point สำหรับขึ้นรถ (เช่น หน้า Office)",owner:"Supervisor"},
+        {text:"นัดหมายเวลาออกรถ (เผื่ออย่างน้อย 1.5–2 ชม.)",owner:"Supervisor"},
+        {text:"เตรียมที่อยู่โรงเรียน + Google Maps ส่งให้ Driver",owner:"Supervisor"},
+        {text:"Confirm Driver เบอร์โทร + แจ้ง Waypoint",owner:"Supervisor"},
+        {text:"Assign คนนับของขึ้น-ลงรถทุกครั้ง (ห้ามของตกหล่น)",owner:"Staff A"},
+        {text:"กำหนดเวลา Pick-up กลับหลังงาน + แจ้ง Driver",owner:"Supervisor"},
+      ]},
+      { title:"📍 UPC Route Detail", items:[
+        {text:"โรงเรียนเบญจมราชานุสรณ์ (นนทบุรี) — 28 พ.ค.",note:"ออก ~06.30 | กลับ ~16.00",owner:"Driver + Supervisor"},
+        {text:"โรงเรียนศรีบุณยานนท์ (นนทบุรี) — 9 มิ.ย.",note:"ออก ~06.30 | กลับ ~16.00",owner:"Driver + Supervisor"},
+        {text:"โรงเรียนพระปฐมวิทยาลัย (นครปฐม) — 11 มิ.ย.",note:"ออก ~06.00 | กลับ ~16.30",owner:"Driver + Supervisor"},
+        {text:"โรงเรียนบ้านสวน-จันอนุสรณ์ (ชลบุรี) — 3 ก.ค.",note:"ออก ~05.30 | กลับ ~17.00",owner:"Driver + Supervisor"},
+        {text:"โรงเรียนบางพลีราษฎร์บำรุง (สมุทรปราการ) — 7 ส.ค.",note:"ออก ~06.00 | กลับ ~16.30",owner:"Driver + Supervisor"},
+      ]},
+      { title:"🏙️ BKK — กรุงเทพ (Staff เดินทางเอง)", items:[
+        {text:"แจ้ง Staff: ที่อยู่โรงเรียน + เวลา Arrive (08.00)",owner:"Supervisor"},
+        {text:"แนะนำเส้นทาง: BTS / MRT / รถส่วนตัว / Grab",owner:"Supervisor"},
+        {text:"เตือน: คำนวณเวลาเผื่อการจราจร BKK อย่างน้อย 30–45 นาที",owner:"Supervisor"},
+        {text:"Staff แจ้ง ETA ใน Line Group ก่อนถึง 15 นาที",owner:"ทีมงาน"},
+        {text:"Supervisor ยืนหน้า รร. รับ Staff และ Verify Batch",owner:"Supervisor"},
+      ]},
+      { title:"📍 BKK Route Detail", items:[
+        {text:"โรงเรียนศึกษานารี — 15 มิ.ย.",note:"BTS สาย Silom | Arrive 08.00",owner:"Staff เดินทางเอง"},
+        {text:"โรงเรียนมัธยมวัดหนองแขม — 18 มิ.ย.",note:"รถยนต์ / Grab | Arrive 08.00",owner:"Staff เดินทางเอง"},
+        {text:"โรงเรียนรัตนโกสินทร์สมโภชบางขุนเทียน — 9 ก.ค.",note:"รถยนต์ / Grab | Arrive 08.00",owner:"Staff เดินทางเอง"},
+        {text:"โรงเรียนสตรีวัดมหาพฤฒาราม — 6 ส.ค.",note:"MRT / รถยนต์ | Arrive 08.00",owner:"Staff เดินทางเอง"},
+        {text:"โรงเรียนเทพศิรินทร์ — 18 ส.ค.",note:"MRT สาย Blue Line | Arrive 08.00",owner:"Staff เดินทางเอง"},
+      ]},
+    ]
+  },
+  batch: {
+    label:"Staff Batch", icon:"🪪", colorClass:"sh-batch",
+    sections:[
+      { title:"📋 เตรียม Batch ก่อนวันงาน (3 วันก่อน)", items:[
+        {text:"Design Batch มีชื่อ Staff, Role, โลโก้ RMS — แยกสีจาก Badge นักเรียนชัดเจน",owner:"Supervisor"},
+        {text:"Print Batch ครบจำนวน Staff + เผื่อ 2 ใบ ใส่ Plastic Cover + คล้องคอ",owner:"Supervisor"},
+        {text:"ตรวจสอบรายชื่อ Staff ที่จะไปในแต่ละโรงเรียน (อาจต่างกันแต่ละวัน)",owner:"Supervisor"},
+        {text:"Pack Batch แยกตามวันงานแต่ละโรงเรียน ใส่ซอง Label ชัดเจน",owner:"Supervisor"},
+        {text:"Confirm กับ รร. ว่า Batch ผ่านการอนุมัติ (บาง รร. มี Format ของตัวเอง)",owner:"Supervisor"},
+      ]},
+      { title:"🏫 Verification Process — วันงาน (BKK เท่านั้น)", items:[
+        {text:"Supervisor มาถึงหน้า รร. ก่อน Staff อื่น 15 นาที",note:"ต้องถึงก่อนเพื่อ Set up จุด Check-in",owner:"Supervisor"},
+        {text:"Set up จุด Check-in หน้า รร. (กางร่มถ้าฝนตก)",owner:"Supervisor"},
+        {text:"เปิด List รายชื่อ Staff ประจำวัน (Print หรือในโทรศัพท์)",owner:"Supervisor"},
+        {text:"Staff แต่ละคนแสดง Batch ก่อนเข้า รร.",note:"ห้ามเข้าโดยไม่ผ่าน Check-in",owner:"ทีมงาน"},
+        {text:"Supervisor Tick ✓ รายชื่อ + ตรวจ Uniform / Dress Code",owner:"Supervisor"},
+        {text:"ถ้า Staff ลืม Batch → มอบ Batch สำรองที่ Check-in",note:"Batch สำรองต้องติดตัว Supervisor ทุกครั้ง",owner:"Supervisor"},
+        {text:"Staff มาช้ากว่า 08.30 → โทรแจ้ง Supervisor ทันที",owner:"Staff ที่มาช้า"},
+        {text:"Staff ครบ → แจ้ง รร. → เข้าพื้นที่ Set up Booth ได้",owner:"Supervisor"},
+      ]},
+    ]
+  }
+};
+
+// ══════════════════════════════════════════
+// INVENTORY DATA
+// ══════════════════════════════════════════
+const MERCH_QUOTA = [
+  {id:'m1',name:'เสื้อ PUBG',cat:'merch',qtyPerSchool:5,alert:1},
+  {id:'m2',name:'เสื้อยืด (RMS)',cat:'merch',qtyPerSchool:2,alert:1},
+  {id:'m3',name:'แก้วสแตนเลส 30 oz',cat:'merch',qtyPerSchool:1,alert:0},
+  {id:'m4',name:'กระเป๋าผ้าสีเบจบอนด์',cat:'merch',qtyPerSchool:4,alert:1},
+  {id:'m5',name:'เสื้อ RMS×MSL (2XL)',cat:'merch',qtyPerSchool:2,alert:1},
+  {id:'m6',name:'แก้ว RMS×MSL',cat:'merch',qtyPerSchool:2,alert:1},
+  {id:'m7',name:'หมวก RMS×MSL',cat:'merch',qtyPerSchool:2,alert:1},
+];
+const BOOTH_STRUCTURE = [
+  {id:'b1',name:'Backdrop หลัก',cat:'booth',initial:1,alert:0},
+  {id:'b2',name:'X-Stand Banner ซ้าย',cat:'booth',initial:1,alert:0},
+  {id:'b3',name:'X-Stand Banner ขวา',cat:'booth',initial:1,alert:0},
+  {id:'b4',name:'Roll-up Banner (สูง)',cat:'booth',initial:1,alert:0},
+  {id:'b5',name:'ผ้าคลุมโต๊ะ RMS (สีดำ)',cat:'booth',initial:1,alert:0},
+  {id:'b6',name:'โต๊ะ',cat:'booth',initial:1,alert:0},
+  {id:'b7',name:'Standee / Pop-up Display',cat:'booth',initial:1,alert:0},
+  {id:'b8',name:'กล่อง Display (RMS Branded)',cat:'booth',initial:1,alert:0},
+  {id:'b9',name:'QR Code Print A3',cat:'booth',initial:5,alert:2},
+  {id:'b10',name:'สายไฟต่อพ่วง / รางปลั๊ก',cat:'consume',initial:2,alert:1},
+  {id:'b11',name:'เทปกาว / เทปโฟม',cat:'consume',initial:3,alert:1},
+  {id:'b12',name:'Plastic Sheet กันฝน',cat:'consume',initial:5,alert:2},
+  {id:'b13',name:'Tablet / iPad',cat:'tech',initial:2,alert:0},
+  {id:'b14',name:'Power Bank',cat:'tech',initial:3,alert:1},
+  {id:'b15',name:'Voucher (ใบ)',cat:'voucher',initial:500,alert:50},
+];
+function buildDefaultInventory() {
+  const items = [];
+  BOOTH_STRUCTURE.forEach(b => items.push({...b,used:0,img:null,group:'booth'}));
+  MERCH_QUOTA.forEach(m => items.push({...m,initial:m.qtyPerSchool,used:0,img:null,group:'merch',quota:m.qtyPerSchool}));
+  return items;
+}
+
+const SCHOOL_DATA = {};
+let currentSchool = null;
+let nextInvId = 100;
+
+// ══════════════════════════════════════════
+// SCHOOL CHANGE
+// ══════════════════════════════════════════
+function onSchoolChange() {
+  const val = document.getElementById('schoolSelect').value;
+  if (!val) { currentSchool=null; showNoBooth(); return; }
+  const p = val.split('|');
+  currentSchool = {id:p[0],name:p[1],prov:p[2],date:p[3],influencer:p[4],type:p[5],maps:p[6]||'',students:p[7]||''};
+  if (!SCHOOL_DATA[currentSchool.id]) {
+    SCHOOL_DATA[currentSchool.id] = {checks:{},inventory:buildDefaultInventory()};
+  } else if (!SCHOOL_DATA[currentSchool.id].inventory) {
+    SCHOOL_DATA[currentSchool.id].inventory = buildDefaultInventory();
+  }
+  renderAll();
+}
+function showNoBooth() {
+  document.getElementById('no-school-msg').style.display='block';
+  document.getElementById('dashboard-content').style.display='none';
+}
+
+// ══════════════════════════════════════════
+// TAB SWITCHING
+// ══════════════════════════════════════════
+function switchTab(name) {
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if (currentSchool) renderAll();
+}
+
+// ══════════════════════════════════════════
+// RENDER ALL
+// ══════════════════════════════════════════
+function renderAll() {
+  if (!currentSchool) return;
+  updateSchoolBanner();
+  ['preplan','booth','mechanic','rain','transport','batch'].forEach(t =>
+    renderChecklist(t, document.getElementById(t+'-list'))
+  );
+  renderInventory();
+  renderDashboard();
+}
+function updateSchoolBanner() {
+  const s = currentSchool;
+  document.getElementById('sb-name').textContent = s.name;
+  document.getElementById('sb-meta').textContent = `${s.prov} · นักเรียน ${Number(s.students).toLocaleString()} คน · Influencer: ${s.influencer} · ${s.type} · ผู้ประสาน: คุณบอย 099-290-2878`;
+  document.getElementById('sb-date').textContent = s.date;
+  const mEl = document.getElementById('sb-maps');
+  if (s.maps) { mEl.href=s.maps; mEl.style.display='inline'; } else { mEl.style.display='none'; }
+  document.getElementById('sb-rules').innerHTML = '📌 กฎเข้าโรงเรียน: เข้าตั้งบูธ 09.00 น. &nbsp;|&nbsp; แต่งกายสุภาพ ไม่ใส่รองเท้า &nbsp;|&nbsp; งดสูบบุหรี่ &nbsp;|&nbsp; ผู้ไม่ได้กรอกข้อมูลห้ามเข้า';
+  document.getElementById('no-school-msg').style.display='none';
+  document.getElementById('dashboard-content').style.display='block';
+}
+
+// ══════════════════════════════════════════
+// CHECKLIST RENDER
+// ══════════════════════════════════════════
+function checkKey(tab,sIdx,iIdx) { return `${tab}_${sIdx}_${iIdx}`; }
+function toggleCheck(tab,sIdx,iIdx) {
+  if (!currentSchool) return;
+  const key = checkKey(tab,sIdx,iIdx);
+  const data = SCHOOL_DATA[currentSchool.id];
+  data.checks[key] = !data.checks[key];
+  const el = document.getElementById('item-'+key);
+  if (el) { data.checks[key] ? el.classList.add('done') : el.classList.remove('done'); }
+  updateSectionProgress(tab,sIdx);
+  renderDashboard();
+  scheduleSave();
+}
+function updateSectionProgress(tab,sIdx) {
+  const data = SCHOOL_DATA[currentSchool.id];
+  const sec = CHECKLISTS[tab].sections[sIdx];
+  const total = sec.items.length;
+  let done = sec.items.filter((_,i)=>data.checks[checkKey(tab,sIdx,i)]).length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  const meta = document.getElementById(`sec-meta-${tab}-${sIdx}`);
+  if (meta) meta.textContent = `${done}/${total}`;
+  const fill = document.getElementById(`sec-fill-${tab}-${sIdx}`);
+  if (fill) { fill.style.width=pct+'%'; fill.className='progress-fill '+(pct===100?'green':pct>50?'amber':''); }
+}
+function renderChecklist(tab, container) {
+  if (!container) return;
+  const cfg = CHECKLISTS[tab];
+  const data = SCHOOL_DATA[currentSchool.id];
+  let html = '';
+  cfg.sections.forEach((sec,sIdx) => {
+    const total = sec.items.length;
+    const done = sec.items.filter((_,i)=>data.checks[checkKey(tab,sIdx,i)]).length;
+    html += `<div class="section-card ${cfg.colorClass}" id="sec-${tab}-${sIdx}">
+      <div class="section-header" onclick="toggleSection('sec-${tab}-${sIdx}')">
+        <div class="section-header-left"><span class="section-title">${sec.title}</span></div>
+        <span class="section-meta" id="sec-meta-${tab}-${sIdx}">${done}/${total}</span>
+        <div style="width:60px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-left:10px">
+          <div id="sec-fill-${tab}-${sIdx}" class="progress-fill ${done===total&&total>0?'green':done>0?'amber':''}" style="width:${total?Math.round(done/total*100):0}%"></div>
+        </div>
+        <span class="section-chevron">▾</span>
+      </div>
+      <div class="section-body">`;
+    sec.items.forEach((item,iIdx) => {
+      const key = checkKey(tab,sIdx,iIdx);
+      const isDone = !!data.checks[key];
+      html += `<div class="checklist-item ${isDone?'done':''} ${item.alertClass||''}" id="item-${key}">
+        <div class="item-check" onclick="toggleCheck('${tab}',${sIdx},${iIdx})">
+          <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="item-main">
+          <div class="item-text">${item.text}</div>
+          ${item.note?`<div class="item-note">${item.note}</div>`:''}
+        </div>
+        <div class="item-right">
+          ${item.time?`<span class="item-time">${item.time}</span>`:''}
+          ${item.owner?`<span class="item-owner">${item.owner}</span>`:''}
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  container.innerHTML = html;
+}
+function toggleSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('collapsed');
+}
+
+// ══════════════════════════════════════════
+// INVENTORY
+// ══════════════════════════════════════════
+const CAT_LABELS  = {booth:'Booth',merch:'Merch',voucher:'Voucher',consume:'Consumables',tech:'Tech'};
+const CAT_CLASSES = {booth:'cat-booth',merch:'cat-merch',voucher:'cat-voucher',consume:'cat-consume',tech:'cat-tech'};
+function getInv() { return SCHOOL_DATA[currentSchool.id].inventory; }
+function stockStatus(item) {
+  const rem = item.initial - item.used;
+  if (rem<=0) return 'danger';
+  if (item.alert>0 && rem<=item.alert) return 'warn';
+  return 'ok';
+}
+
+function renderInventory() {
+  const inv = getInv();
+  const tbody = document.getElementById('inv-tbody');
+  if (!tbody) return;
+  let hasAlert = false;
+  const groups = [
+    {key:'booth',label:'🏗️ โครงสร้างบูธ & อุปกรณ์',color:'#1d4ed8'},
+    {key:'merch',label:'🎁 ของแจก (Quota ต่อโรงเรียน)',color:'#6d28d9'},
+  ];
+  let html = '';
+  groups.forEach(grp => {
+    const items = inv.filter(i=>i.group===grp.key);
+    if (!items.length) return;
+    html += `<tr><td colspan="8" style="background:${grp.color}10;padding:8px 14px;border-bottom:1px solid var(--border)"><span style="font-weight:700;font-size:12px;color:${grp.color}">${grp.label}</span></td></tr>`;
+    items.forEach(item => { if(stockStatus(item)!=='ok') hasAlert=true; html += buildInvRow(item); });
+  });
+  const custom = inv.filter(i=>!i.group);
+  if (custom.length) {
+    html += `<tr><td colspan="8" style="background:#f5f5f3;padding:8px 14px;border-bottom:1px solid var(--border)"><span style="font-weight:700;font-size:12px;color:#5a5a55">➕ รายการเพิ่มเติม</span></td></tr>`;
+    custom.forEach(item => { if(stockStatus(item)!=='ok') hasAlert=true; html+=buildInvRow(item); });
+  }
+  tbody.innerHTML = html || '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--text3)">ยังไม่มีรายการ</td></tr>';
+
+  // Attach file inputs via DOM — NOT innerHTML (fixes upload bug)
+  inv.forEach(item => {
+    const cell = document.getElementById(`upload-cell-${item.id}`);
+    if (!cell) return;
+    if (item.img) {
+      const thumb = document.createElement('img');
+      thumb.src = item.img; thumb.className='upload-thumb'; thumb.title='ดูรูป';
+      thumb.onclick = ()=>viewImg(item.id);
+      cell.appendChild(thumb);
+    }
+    const label = document.createElement('label');
+    label.className='upload-label'; label.title='Upload รูป/หลักฐาน'; label.textContent='＋';
+    const fi = document.createElement('input');
+    fi.type='file'; fi.className='upload-input'; fi.accept='image/*,application/pdf';
+    fi.onchange = ()=>handleUpload(item.id, fi);
+    label.appendChild(fi); cell.appendChild(label);
+  });
+
+  const banner = document.getElementById('inv-alert-banner');
+  const badge  = document.getElementById('inv-alert-badge');
+  if (banner) banner.style.display = hasAlert?'flex':'none';
+  if (badge)  badge.style.display  = hasAlert?'inline':'none';
+}
+
+function buildInvRow(item) {
+  const rem=item.initial-item.used, st=stockStatus(item);
+  const rowCls=st==='danger'?'row-alert':st==='warn'?'row-warn':'';
+  const numCls=st==='danger'?'danger':st==='warn'?'warn':'ok';
+  const pillTxt=st==='danger'?'⚠ หมด':st==='warn'?'⚡ ใกล้หมด':'✓ พอ';
+  const qBadge=item.quota?`<span style="font-size:10px;font-family:'IBM Plex Mono',monospace;background:#e0e7ff;color:#3730a3;padding:1px 5px;border-radius:4px;margin-left:5px">${item.quota}/รร.</span>`:'';
+  return `<tr class="${rowCls}">
+    <td><span class="inv-name">${item.name}</span>${qBadge}</td>
+    <td><span class="inv-category ${CAT_CLASSES[item.cat]||'cat-booth'}">${CAT_LABELS[item.cat]||item.cat}</span></td>
+    <td><input type="number" class="stock-input" style="width:60px" value="${item.initial}" min="0" onchange="setInitial('${item.id}',this.value)"></td>
+    <td><div class="stock-controls">
+      <button class="stock-btn" onclick="adjustUsed('${item.id}',-1)">−</button>
+      <input type="number" class="stock-input" value="${item.used}" min="0" onchange="setUsed('${item.id}',this.value)">
+      <button class="stock-btn" onclick="adjustUsed('${item.id}',1)">＋</button>
+    </div></td>
+    <td><span class="stock-num ${numCls}">${rem}</span></td>
+    <td><span class="alert-pill ${st}">${pillTxt}</span></td>
+    <td><div class="upload-cell" id="upload-cell-${item.id}"></div></td>
+    <td><button class="btn btn-red" style="padding:4px 8px;font-size:11px" onclick="removeItem('${item.id}')">✕</button></td>
+  </tr>`;
+}
+
+function handleUpload(id, input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const item = getInv().find(i=>String(i.id)===String(id));
+    if (!item) return;
+    item.img = e.target.result;
+    if (currentSchool) IMG_CACHE[getImgKey(currentSchool.id,id)] = e.target.result;
+    // Update only the specific cell — no full re-render
+    const cell = document.getElementById(`upload-cell-${id}`);
+    if (cell) {
+      cell.innerHTML='';
+      const thumb=document.createElement('img');
+      thumb.src=e.target.result; thumb.className='upload-thumb'; thumb.title='ดูรูป';
+      thumb.onclick=()=>viewImg(id); cell.appendChild(thumb);
+      const label=document.createElement('label');
+      label.className='upload-label'; label.title='อัปโหลดใหม่'; label.textContent='✎';
+      const fi=document.createElement('input');
+      fi.type='file'; fi.className='upload-input'; fi.accept='image/*,application/pdf';
+      fi.onchange=()=>handleUpload(id,fi);
+      label.appendChild(fi); cell.appendChild(label);
+    }
+  };
+  reader.readAsDataURL(file);
+}
+function viewImg(id) {
+  const item=getInv().find(i=>String(i.id)===String(id));
+  if (!item||!item.img) return;
+  const w=window.open('','_blank');
+  w.document.write(`<html><body style="margin:0;background:#000"><img src="${item.img}" style="max-width:100%;max-height:100vh;display:block;margin:auto"></body></html>`);
+  w.document.close();
+}
+function adjustUsed(id,delta) {
+  const item=getInv().find(i=>String(i.id)===String(id)); if(!item) return;
+  item.used=Math.max(0,Math.min(item.initial,item.used+delta));
+  renderInventory(); renderDashboard(); scheduleSave();
+}
+function setUsed(id,val) {
+  const item=getInv().find(i=>String(i.id)===String(id)); if(!item) return;
+  item.used=Math.max(0,Math.min(item.initial,parseInt(val)||0));
+  renderInventory(); renderDashboard(); scheduleSave();
+}
+function setInitial(id,val) {
+  const item=getInv().find(i=>String(i.id)===String(id)); if(!item) return;
+  item.initial=Math.max(0,parseInt(val)||0);
+  if(item.used>item.initial) item.used=item.initial;
+  renderInventory(); renderDashboard(); scheduleSave();
+}
+function removeItem(id) {
+  if(!confirm('ลบรายการนี้?')) return;
+  SCHOOL_DATA[currentSchool.id].inventory=SCHOOL_DATA[currentSchool.id].inventory.filter(i=>String(i.id)!==String(id));
+  delete IMG_CACHE[getImgKey(currentSchool.id,id)];
+  renderInventory(); renderDashboard(); scheduleSave();
+}
+function resetInventoryConfirm() {
+  if(!confirm('Reset Stock ทั้งหมดกลับเป็น 0?')) return;
+  getInv().forEach(i=>{i.used=0;}); renderInventory(); scheduleSave();
+}
+function openAddModal()  { document.getElementById('add-modal').classList.remove('hidden'); }
+function closeAddModal() { document.getElementById('add-modal').classList.add('hidden'); }
+function addInventoryItem() {
+  const name=document.getElementById('new-name').value.trim();
+  const cat=document.getElementById('new-cat').value;
+  const initial=parseInt(document.getElementById('new-stock').value)||0;
+  const alertVal=parseInt(document.getElementById('new-alert').value)||0;
+  if(!name){ window.alert('กรุณากรอกชื่อรายการ'); return; }
+  SCHOOL_DATA[currentSchool.id].inventory.push({id:'c'+nextInvId++,name,cat,initial,used:0,alert:alertVal,img:null,group:null});
+  closeAddModal(); document.getElementById('new-name').value='';
+  renderInventory(); renderDashboard(); scheduleSave();
+}
+
+// ══════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════
+function getProgress(tab) {
+  const data=SCHOOL_DATA[currentSchool.id], cfg=CHECKLISTS[tab];
+  let total=0,done=0;
+  cfg.sections.forEach((sec,sIdx)=>{
+    sec.items.forEach((_,iIdx)=>{ total++; if(data.checks[checkKey(tab,sIdx,iIdx)]) done++; });
+  });
+  return {total,done,pct:total?Math.round(done/total*100):0};
+}
+function renderDashboard() {
+  if(!currentSchool) return;
+  const tabs=['preplan','booth','mechanic','rain','transport','batch'];
+  let grandTotal=0, grandDone=0;
+  const inv=getInv();
+  const invAlerts=inv.filter(i=>stockStatus(i)!=='ok').length;
+  const progList=document.getElementById('section-progress-list');
+  let progHtml='';
+  tabs.forEach(tab=>{
+    const cfg=CHECKLISTS[tab], p=getProgress(tab);
+    grandTotal+=p.total; grandDone+=p.done;
+    const fc=p.pct===100?'green':p.pct>50?'amber':'';
+    progHtml+=`<div class="sp-row">
+      <span class="sp-name">${cfg.icon} ${cfg.label}</span>
+      <div class="sp-bar"><div class="sp-fill ${fc}" style="width:${p.pct}%"></div></div>
+      <span class="sp-pct">${p.pct}%</span>
+      <span class="sp-count">${p.done}/${p.total}</span>
+    </div>`;
+  });
+  const invPct=inv.length>0?Math.round((inv.length-invAlerts)/inv.length*100):100;
+  progHtml+=`<div class="sp-row"><span class="sp-name">📦 Inventory</span>
+    <div class="sp-bar"><div class="sp-fill ${invAlerts===0?'green':'red'}" style="width:${invPct}%"></div></div>
+    <span class="sp-pct">${invPct}%</span>
+    <span class="sp-count">${invAlerts>0?invAlerts+' รายการ ⚠':'OK'}</span></div>`;
+  if(progList) progList.innerHTML=progHtml;
+  const overall=grandTotal?Math.round(grandDone/grandTotal*100):0;
+  const fc=overall===100?'green':overall>50?'amber':'';
+  const cards=document.getElementById('stat-cards');
+  if(!cards) return;
+  cards.innerHTML=`
+    <div class="stat-card">
+      <div class="stat-label">Overall Progress</div>
+      <div class="stat-value">${overall}%</div>
+      <div class="stat-sub">${grandDone} / ${grandTotal} รายการ</div>
+      <div class="progress-bar"><div class="progress-fill ${fc}" style="width:${overall}%"></div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">โรงเรียน</div>
+      <div class="stat-value" style="font-size:13px;padding-top:4px">${currentSchool.name}</div>
+      <div class="stat-sub">${currentSchool.prov} · ${currentSchool.type} · ${currentSchool.date}</div>
+      ${currentSchool.maps?`<a href="${currentSchool.maps}" target="_blank" style="display:inline-block;margin-top:6px;font-size:11px;color:var(--blue);text-decoration:none">📍 เปิด Google Maps</a>`:''}
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">จำนวนนักเรียน</div>
+      <div class="stat-value">${Number(currentSchool.students).toLocaleString()}</div>
+      <div class="stat-sub">Influencer: ${currentSchool.influencer}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Inventory Alerts</div>
+      <div class="stat-value" style="color:${invAlerts>0?'var(--red)':'var(--green)'}">${invAlerts}</div>
+      <div class="stat-sub">${invAlerts>0?'รายการต้องตรวจสอบ':'Stock ปกติทั้งหมด'}</div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
+// EXPORT PDF
+// ══════════════════════════════════════════
+function exportInventoryPDF() {
+  const inv=getInv(), school=currentSchool;
+  function groupRows(groupKey,groupLabel) {
+    const items=groupKey?inv.filter(i=>i.group===groupKey):inv.filter(i=>!i.group);
+    if(!items.length) return '';
+    let out=`<tr><td colspan="6" style="background:#f0f0ee;padding:8px 12px;font-weight:700;font-size:12px;border-bottom:2px solid #ddd">${groupLabel}</td></tr>`;
+    items.forEach(i=>{
+      const rem=i.initial-i.used, st=stockStatus(i);
+      const stTxt=st==='danger'?'⚠ หมด':st==='warn'?'⚡ ใกล้หมด':'✓ พอ';
+      const stColor=st==='danger'?'#c0392b':st==='warn'?'#b45309':'#22863a';
+      const qNote=i.quota?` <small style="color:#3730a3">(${i.quota}/รร.)</small>`:'';
+      out+=`<tr><td>${i.name}${qNote}</td><td>${CAT_LABELS[i.cat]||i.cat}</td>
+        <td style="text-align:center">${i.initial}</td><td style="text-align:center">${i.used}</td>
+        <td style="text-align:center;font-weight:700;color:${stColor}">${rem}</td>
+        <td style="text-align:center;color:${stColor}">${stTxt}</td></tr>`;
+    });
+    return out;
+  }
+  const html=`<html><head><meta charset="UTF-8"><style>
+    body{font-family:sans-serif;font-size:13px;padding:24px}h2{margin-bottom:4px}p{color:#666;margin-bottom:16px}
+    table{width:100%;border-collapse:collapse}th{background:#1a1a18;color:#fff;padding:8px 12px;text-align:left}
+    td{padding:8px 12px;border-bottom:1px solid #eee}tr:nth-child(even) td{background:#f9f9f8}
+  </style></head><body>
+  <h2>📦 Inventory Report — ${school.name}</h2>
+  <p>${school.date} · ${school.type} · Influencer: ${school.influencer} · Export: ${new Date().toLocaleString('th-TH')}</p>
+  <table><thead><tr><th>รายการ</th><th>หมวด</th><th>Stock เริ่มต้น</th><th>ใช้ไป</th><th>คงเหลือ</th><th>Status</th></tr></thead>
+  <tbody>${groupRows('booth','🏗️ โครงสร้างบูธ')}${groupRows('merch','🎁 ของแจก')}${groupRows(null,'➕ เพิ่มเติม')}</tbody>
+  </table></body></html>`;
+  const w=window.open('','_blank');
+  w.document.write(html); w.document.close();
+  setTimeout(()=>w.print(),500);
+}
+</script>
+</body>
+</html>
